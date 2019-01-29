@@ -1,7 +1,11 @@
 function Contact() {
 
-    this.name = "Achis";
-    this.address = "123 street";
+    this.createContact = async (name, address) => {
+        
+        this.name = name;
+        this.address = address;
+
+    }
 
 }
 

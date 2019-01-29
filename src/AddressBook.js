@@ -1,29 +1,29 @@
 
 function AddressBook() {
-    
+
     this.contacts = [];
 
-    this.addContact = function(theContact) {
+    this.addContact = (theContact) => {
         this.contacts.push(theContact);
+    
     };
 
 
-    this.deleteContact = function(theContact) {
-        console.log("Contacts before pop: " + this.contacts.length);
+    this.deleteContact = (theContact) => {
         this.contacts.pop(theContact);
-        console.log("Contacts after pop: " + this.contacts.length);
     };
 
-    this.getContact = function(index) {
+    this.getContact = (index) => {
         return this.contacts[index];
     };
 
-    this.verifyContactPresent = function(theContact) {
+    this.verifyContactPresent = (theContact) => {
         return this.contacts.includes(theContact)
     };
 
 
 };
+
 
 
 

@@ -4,7 +4,7 @@
  * 
  */
 
- describe("Address book contacts tests", () => {
+ describe("Address book", () => {
 
     var addressBook;
     var thisContact;
@@ -14,19 +14,25 @@
         thisContact = require('./src/Contact.js');
     });
 
-    it("should be able to add the first contact", () => {
-
-        await addressBook.addContact(thisContact);
-        await expect(addressBook.getContact(0)).toBe(thisContact);
+    it("should be able to add the first contact", async () => {
+        thisContact.createContact("contact 1", "123 st");
+        addressBook.addContact(thisContact);
+        expect(addressBook.getContact(0)).toBe(thisContact);
     });
 
 
-    it("should be able to delete a contact", () =>{
+    it("should be able to delete a contact", async () => {
 
-        await addressBook.addContact(thisContact);
-        await addressBook.deleteContact(thisContact);
-        await expect(addressBook.verifyContactPresent(thisContact)).toBe(false);
+        thisContact.createContact("contact 2", "456 st");
+        addressBook.addContact(thisContact);
+        addressBook.deleteContact(thisContact);
+        expect(addressBook.verifyContactPresent(thisContact)).toBe(false);
 
+    });
+
+    afterEach(() => {
+        addressBook = null;
+        thisContact = null;
     });
 
  });
